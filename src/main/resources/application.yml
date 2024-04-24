@@ -1,7 +1,19 @@
 spring:
   profiles:
-    active: cat, ES, dev
+    active:
+      - cat
+      - ES
+      - dev
 guru:
   username: yamlUser
   password: yamldbPassword
   jdbcUrl: yamlSomeConnectionString
+
+
+---
+spring:
+  profiles: prod
+guru:
+  username: yamlProdUser
+  password: yamlProddbPassword
+  jdbcUrl: yamlProdSomeConnectionString

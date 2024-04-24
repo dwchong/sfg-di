@@ -15,10 +15,10 @@ import org.springframework.context.annotation.*;
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(@Value("${guru.username}") String username,
-                                  @Value("${guru.password}") String password,
-                                  @Value("${guru.jdbcUrl}") String jdbcUrl) {
-        FakeDataSource fakeDataSource = new FakeDataSource(username, password, jdbcUrl);
+    FakeDataSource fakeDataSource(SfgConfiguration sfgConfiguration) {
+        FakeDataSource fakeDataSource = new FakeDataSource(sfgConfiguration.getUsername(),
+                                                           sfgConfiguration.getPassword(),
+                                                           sfgConfiguration.getJdbcUrl());
 
         return fakeDataSource;
     }
